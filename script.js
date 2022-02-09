@@ -14,7 +14,7 @@ function timerFormat(time) {
   hours = ("0" + hours).slice(-2);
   minutes = ("0" + minutes).slice(-2);
   seconds = ("0" + seconds).slice(-2);
-  miliseconds = ("0" + miliseconds).slice(-3);
+  miliseconds = ("00" + miliseconds).slice(-3);
   timer.innerHTML = `${hours}:${minutes}:${seconds}:${miliseconds}`;
 };
 
