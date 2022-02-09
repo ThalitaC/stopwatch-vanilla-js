@@ -1,5 +1,6 @@
 let timer = document.getElementById("timer");
 let startStopButton = document.getElementById("start-stop");
+let resetButton = document.getElementById("reset");
 let elapsedTime = 0;
 let interval;
 
@@ -13,7 +14,7 @@ function timerFormat(time) {
   seconds = ("0" + seconds).slice(-2);
   miliseconds = ("0" + miliseconds).slice(-3);
   timer.innerHTML = `${hours}:${minutes}:${seconds}:${miliseconds}`;
-}
+};
 
 function incrementTimer() {
   let startTime = Date.now() - elapsedTime;
@@ -23,19 +24,24 @@ function incrementTimer() {
     elapsedTime = time;
     timerFormat(elapsedTime);
   }, 1);
-}
+};
 
 function startStop() {
-  if (
-    timer.innerHTML === "00:00:00:000" ||
-    startStopButton.innerHTML === "Start"
-  ) {
+  if ( timer.innerHTML === "00:00:00:000" || startStopButton.innerHTML === "Start") {
     incrementTimer();
     startStopButton.innerHTML = "Stop";
   } else {
     clearInterval(interval);
     startStopButton.innerHTML = "Start";
   }
-}
+};
 
-document.getElementById("start-stop").addEventListener("click", startStop);
+function reset() {
+  clearInterval(interval);
+  startStopButton.innerHTML = "Start";
+  timer.innerHTML = "00:00:00:000";
+  elapsedTime = 0;
+};
+
+startStopButton.addEventListener("click", startStop);
+resetButton.addEventListener("click", reset);
