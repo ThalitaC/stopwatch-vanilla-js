@@ -1,7 +1,7 @@
 let timer = document.getElementById("timer");
 let startStopButton = document.getElementById("start-stop");
 let resetButton = document.getElementById("reset");
-let lapsButton = document.getElementById("laps");
+let lapsButton = document.getElementById("lap");
 let lapsList = document.getElementById("laps-list");
 let elapsedTime = 0;
 let interval;
@@ -39,9 +39,13 @@ function startStop() {
 };
 
 function laps() {
-  let lap = document.createElement("li");
-  lap.innerHTML = timer.innerHTML;
-  lapsList.appendChild(lap);
+  if(timer.innerHTML === "00:00:00:000") {
+    lapsList.innerHTML = "";
+  } else {
+    let lap = document.createElement("li");
+    lap.innerHTML = timer.innerHTML;
+    lapsList.appendChild(lap);
+  }
 };
 
 function reset() {
