@@ -2,6 +2,7 @@ let timer = document.getElementById("timer");
 let startStopButton = document.getElementById("start-stop");
 let resetButton = document.getElementById("reset");
 let lapsButton = document.getElementById("laps");
+let lapsList = document.getElementById("laps-list");
 let elapsedTime = 0;
 let interval;
 
@@ -37,17 +38,18 @@ function startStop() {
   }
 };
 
+function laps() {
+  let lap = document.createElement("li");
+  lap.innerHTML = timer.innerHTML;
+  lapsList.appendChild(lap);
+};
+
 function reset() {
   clearInterval(interval);
   startStopButton.innerHTML = "Start";
   timer.innerHTML = "00:00:00:000";
+  lapsList.innerHTML = "";
   elapsedTime = 0;
-};
-
-function laps() {
-  let lap = document.createElement("li");
-  lap.innerHTML = timer.innerHTML;
-  document.getElementById("laps-list").appendChild(lap);
 };
 
 startStopButton.addEventListener("click", startStop);
