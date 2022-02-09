@@ -1,5 +1,5 @@
 let timer = document.getElementById("timer");
-let startStopButton = document.getElementById("start-stop");
+let startButton = document.getElementById("start");
 let resetButton = document.getElementById("reset");
 let lapsButton = document.getElementById("lap");
 let lapsList = document.getElementById("laps-list");
@@ -29,12 +29,14 @@ function incrementTimer() {
 };
 
 function startStop() {
-  if ( timer.innerHTML === "00:00:00:000" || startStopButton.innerHTML === "Start") {
+  if ( timer.innerHTML === "00:00:00:000" || startButton.innerHTML === "Start") {
     incrementTimer();
-    startStopButton.innerHTML = "Stop";
+    startButton.innerHTML = "Stop";
+    startButton.id = "stop";
   } else {
     clearInterval(interval);
-    startStopButton.innerHTML = "Start";
+    startButton.innerHTML = "Start";
+    startButton.id = "start";
   }
 };
 
@@ -50,12 +52,12 @@ function laps() {
 
 function reset() {
   clearInterval(interval);
-  startStopButton.innerHTML = "Start";
+  startButton.innerHTML = "Start";
   timer.innerHTML = "00:00:00:000";
   lapsList.innerHTML = "";
   elapsedTime = 0;
 };
 
-startStopButton.addEventListener("click", startStop);
+startButton.addEventListener("click", startStop);
 resetButton.addEventListener("click", reset);
 lapsButton.addEventListener("click", laps);
