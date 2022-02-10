@@ -9,3 +9,4 @@ Stopwatch based on one of [Florin Pop app ideas](https://github.com/florinpop17/
 - Restart timer (only if timer is started)
 
 ## Demo
+https://thalitac.github.io/stopwatch-vanilla-js/
