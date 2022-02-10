@@ -13,7 +13,17 @@ body {
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
+}
+
+#title {
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.controls-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
 }
 
 .timer-container {
@@ -37,23 +47,70 @@ body {
 
 button {
   border: none;
-  border-radius: 50%;
-  box-shadow: 0px 0px 15px -5px rgba(255, 255, 255, 0.9);
+  border-radius: 1em;
+  box-shadow: 0px 0px 10px -5px rgba(255, 255, 255, 0.9);
   cursor: pointer;
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
-  height: 5em;
+  height: 3em;
   margin: 0.5em;
   padding: 0.5em;
   width: 5em;
 }
 
+
 #start {
   background-color: rgb(0, 165, 47);
-  color: rgb(2, 24, 8);
+  color: rgb(255, 255, 255);
 }
 
 #stop {
   background-color: rgb(159, 17, 7);
-  color: rgb(24, 2, 2);
+  color: rgb(255, 255, 255);
+}
+
+#reset, #restart, #lap {
+  background-color: rgb(11, 64, 238);
+  color: rgb(255, 255, 255);
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.laps-container {
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  font-family: arial, helvetica, sans-serif;
+  height: 12em;
+  margin-top: 1em;
+  width: 12em;
+}
+
+.laps-container p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+#laps-list {
+  margin: 0;
+  counter-reset: item;
+  font-size: 0.8em;
+  font-weight: 500;
+  padding: 0.5em;
+}
+
+#laps-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.297);
+  list-style: none;
+  padding: 0.5em;
+}
+
+#laps-list li::before {
+  align-items: start;
+  content: "#" counter(item) " ";
+  counter-increment: item;
+  font-weight: bold;
+  padding-right: 2em;
 }
