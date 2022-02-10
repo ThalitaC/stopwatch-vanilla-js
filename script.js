@@ -56,6 +56,7 @@ function reset() {
   startButton.innerHTML = "Start";
   timer.innerHTML = "00:00:00:000";
   lapsList.innerHTML = "";
+  startButton.id = "start";
   elapsedTime = 0;
 };
 
