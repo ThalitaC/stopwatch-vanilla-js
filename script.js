@@ -1,6 +1,7 @@
 let timer = document.getElementById("timer");
 let startButton = document.getElementById("start");
 let resetButton = document.getElementById("reset");
+let restartButton = document.getElementById("restart");
 let lapsButton = document.getElementById("lap");
 let lapsList = document.getElementById("laps-list");
 let elapsedTime = 0;
@@ -58,6 +59,12 @@ function reset() {
   elapsedTime = 0;
 };
 
+function restart() {
+  reset();
+  startStop();
+}
+
 startButton.addEventListener("click", startStop);
 resetButton.addEventListener("click", reset);
+restartButton.addEventListener("click", restart);
 lapsButton.addEventListener("click", laps);
