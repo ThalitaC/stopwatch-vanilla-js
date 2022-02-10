@@ -61,8 +61,12 @@ function reset() {
 };
 
 function restart() {
+  if (startButton.innerHTML === "Start") {
+    return;
+  } else {
   reset();
   startStop();
+  }
 }
 
 startButton.addEventListener("click", startStop);
