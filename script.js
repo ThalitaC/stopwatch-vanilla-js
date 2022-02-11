@@ -1,9 +1,10 @@
-let timer = document.getElementById("timer");
-let startButton = document.getElementById("start");
-let resetButton = document.getElementById("reset");
-let restartButton = document.getElementById("restart");
-let lapsButton = document.getElementById("lap");
-let lapsList = document.getElementById("laps-list");
+const timer = document.getElementById("timer");
+const initialTimer = "00:00:00:000";
+const startButton = document.getElementById("start");
+const resetButton = document.getElementById("reset");
+const restartButton = document.getElementById("restart");
+const lapsButton = document.getElementById("lap");
+const lapsList = document.getElementById("laps-list");
 let elapsedTime = 0;
 let interval;
 
@@ -30,7 +31,7 @@ function incrementTimer() {
 };
 
 function startStop() {
-  if ( timer.innerHTML === "00:00:00:000" || startButton.innerHTML === "Start") {
+  if ( timer.innerHTML === initialTimer || startButton.innerHTML === "Start") {
     incrementTimer();
     startButton.innerHTML = "Stop";
     startButton.id = "stop";
@@ -42,8 +43,8 @@ function startStop() {
 };
 
 function laps() {
-  if(timer.innerHTML === "00:00:00:000") {
-    lapsList.innerHTML = "";
+  if(timer.innerHTML === initialTimer) {
+    return;
   } else {
     let lap = document.createElement("li");
     lap.innerHTML = timer.innerHTML;
@@ -54,14 +55,14 @@ function laps() {
 function reset() {
   clearInterval(interval);
   startButton.innerHTML = "Start";
-  timer.innerHTML = "00:00:00:000";
+  timer.innerHTML = initialTimer;
   lapsList.innerHTML = "";
   startButton.id = "start";
   elapsedTime = 0;
 };
 
 function restart() {
-  if (timer.innerHTML === "00:00:00:000") {
+  if (timer.innerHTML === initialTimer) {
     return;
   } else {
   reset();
