@@ -61,7 +61,7 @@ function reset() {
 };
 
 function restart() {
-  if (startButton.innerHTML === "Start") {
+  if (timer.innerHTML === "00:00:00:000") {
     return;
   } else {
   reset();
