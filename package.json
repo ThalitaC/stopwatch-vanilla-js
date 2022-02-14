@@ -1,0 +1,26 @@
+{
+  "name": "stopwatch",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  },
+  "version": "1.0.0",
+  "description": "Stopwatch based on one of [Florin Pop app ideas](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Stopwatch-App.md)",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThalitaC/stopwatch-vanilla-js.git"
+  },
+  "author": "Thalita Cecilier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThalitaC/stopwatch-vanilla-js/issues"
+  },
+  "homepage": "https://github.com/ThalitaC/stopwatch-vanilla-js#readme",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
+}
