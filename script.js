@@ -24,7 +24,6 @@ function incrementTimer() {
   let startTime = Date.now() - elapsedTime;
   interval = setInterval(function () {
     let time = Date.now() - startTime;
-    console.log(time);
     elapsedTime = time;
     timerFormat(elapsedTime);
   }, 1);
@@ -43,13 +42,12 @@ function startStop() {
 };
 
 function laps() {
-  if(timer.innerHTML === initialTimer) {
+  if ( timer.innerHTML === initialTimer || startButton.innerHTML === "Start") {
     return;
-  } else {
-    let lap = document.createElement("li");
-    lap.innerHTML = timer.innerHTML;
-    lapsList.appendChild(lap);
   }
+  let li = document.createElement("li");
+  li.innerHTML = timer.innerHTML;
+  lapsList.appendChild(li);
 };
 
 function reset() {
