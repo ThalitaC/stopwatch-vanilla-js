@@ -25,7 +25,7 @@ function incrementTimer() {
   interval = setInterval(function () {
     let time = Date.now() - startTime;
     elapsedTime = time;
-    timerFormat(elapsedTime);
+    formatTimer(elapsedTime);
   }, 1);
 };
 
@@ -63,8 +63,8 @@ function restartTimer() {
   if (timer.innerHTML === initialTimer) {
     return;
   } else {
-  reset();
-  startStop();
+  resetTimerAndLaps();
+  startStopTimer();
   }
 }
 
