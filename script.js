@@ -8,7 +8,7 @@ const lapsList = document.getElementById("laps-list");
 let elapsedTime = 0;
 let interval;
 
-function timerFormat(time) {
+function formatTimer(time) {
   let hours = Math.floor(time / 3600000);
   let minutes = Math.floor(time / 60000);
   let seconds = Math.floor((time % 60000) / 1000);
@@ -29,7 +29,7 @@ function incrementTimer() {
   }, 1);
 };
 
-function startStop() {
+function startStopTimer() {
   if ( timer.innerHTML === initialTimer || startButton.innerHTML === "Start") {
     incrementTimer();
     startButton.innerHTML = "Stop";
@@ -41,7 +41,7 @@ function startStop() {
   }
 };
 
-function laps() {
+function logLaps() {
   if ( timer.innerHTML === initialTimer || startButton.innerHTML === "Start") {
     return;
   }
@@ -50,7 +50,7 @@ function laps() {
   lapsList.appendChild(li);
 };
 
-function reset() {
+function resetTimerAndLaps() {
   clearInterval(interval);
   startButton.innerHTML = "Start";
   timer.innerHTML = initialTimer;
@@ -59,7 +59,7 @@ function reset() {
   elapsedTime = 0;
 };
 
-function restart() {
+function restartTimer() {
   if (timer.innerHTML === initialTimer) {
     return;
   } else {
@@ -68,7 +68,7 @@ function restart() {
   }
 }
 
-startButton.addEventListener("click", startStop);
-resetButton.addEventListener("click", reset);
-restartButton.addEventListener("click", restart);
-lapsButton.addEventListener("click", laps);
+startButton.addEventListener("click", startStopTimer);
+resetButton.addEventListener("click", resetTimerAndLaps);
+restartButton.addEventListener("click", restartTimer);
+lapsButton.addEventListener("click", logLaps);
